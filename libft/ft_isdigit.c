@@ -15,12 +15,8 @@
 int	ft_isdigit(char *c)
 {
 	int i = 0;
-    while (c[i] == 32)
-        i++;
     if (c[i] == '-' || c[i] == '+')
         i++;
-    if (c[i] == '\0')
-        return 0;
     while (c[i])
     {
         if (c[i] < '0' || c[i] > '9')

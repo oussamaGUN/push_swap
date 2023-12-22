@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:34:05 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/22 10:29:46 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/22 17:40:48 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,55 @@ int ft_check_space(char *s)
     return 1;
 }
 
+int ft_check_max_min(char *s)
+{
+    int		i;
+	int		sign;
+	long int		res;
+
+	i = 0;
+	sign = 1;
+	res = 0;
+
+	if (s[i] == '-')
+	{
+		sign *= -1;
+		i++;
+	}
+	else if (s[i] == '+')
+		i++;
+	while (s[i] >= '0' && s[i] <= '9')
+	{
+		res = res * 10 + s[i] - '0';
+		i++;
+	}
+    res *= sign;
+    if (res < INT_MIN || res > INT_MAX)
+        return 0;
+    return 1;
+}
+int ft_check_duplicate(char *s, t_list *lst)
+{
+    int num = ft_atoi(s);
+    while (lst)
+    {
+        if (lst->data == num)
+            return 0;
+        lst = lst->next;
+    }
+    return 1;
+}
+int empty(char *s)
+{
+    int i = 0;
+    while (s[i])
+    {
+        if (s[i] != ' ')
+            return 1;
+        i++;
+    }
+    return 0;
+}
 int main(int ac, char *av[])
 {
     t_list *stack_a = NULL;
@@ -46,15 +95,21 @@ int main(int ac, char *av[])
     int num = 0;
     while (j < ac)
     {
+        if (!empty(av[j]))
+        {
+            write(2, "Error\n", 6);
+            exit(1);
+        }
         if (ft_check_space(av[j]) == 0)
         {
             str_arr = ft_split(av[j], ' ');
             i = 0;
             while (str_arr[i])
             {
-                if (!ft_isdigit(str_arr[i]))
+                if (!ft_isdigit(str_arr[i]) || !ft_check_max_min(str_arr[i])
+                    || !ft_check_duplicate(str_arr[i], stack_a))
                 {
-                    write(2, "Erorr\n", 6);
+                    write(2, "Error\n", 6);
                     exit(1);
                 }
                 num = ft_atoi(str_arr[i]);
@@ -71,9 +126,9 @@ int main(int ac, char *av[])
         }
         else
         {
-            if (!ft_isdigit(av[j]))
+            if (!ft_isdigit(av[j]) || !ft_check_max_min(av[j]) || !ft_check_duplicate(av[j], stack_a))
             {
-                write(2, "Erorr\n", 6);
+                write(1, "Error\n", 6);
                 exit(1);
             }
             num = ft_atoi(av[j]);

@@ -10,6 +10,8 @@ typedef struct s_list
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
+#include <limits.h>
 t_list	*ft_lstnew(int content);
 t_list *sa(t_list *stack_a);
 t_list *sb(t_list *stack_b);
