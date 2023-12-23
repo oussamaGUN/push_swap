@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   ra.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 11:59:54 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/20 16:02:00 by ousabbar         ###   ########.fr       */
+/*   Created: 2023/12/23 11:32:43 by ousabbar          #+#    #+#             */
+/*   Updated: 2023/12/23 13:21:13 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../main.h"
 
-t_list *sa(t_list *stack_a)
+t_list *ra(t_list *stack_a)
 {
-    t_list *first = NULL;
-    t_list *second = NULL;
-
-    first = stack_a;
+    t_list *first = stack_a;
     stack_a = stack_a->next;
-    second = stack_a->next;
-    stack_a->next = first; 
-    first->next = second;
-    printf("sa\n");
-    return stack_a;
+    first->next = NULL;
+    
+    t_list *tmp = stack_a;
+    while (tmp->next)
+        tmp = tmp->next;
+    tmp->next = first;
+    return stack_a;    
 }

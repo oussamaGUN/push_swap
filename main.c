@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:34:05 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/22 17:40:48 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/23 14:29:39 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int empty(char *s)
 int main(int ac, char *av[])
 {
     t_list *stack_a = NULL;
+    // t_list *stack_b = NULL;
     char **str_arr;
     // ft_sort(&stack_a);
     if (ac < 1)
@@ -139,6 +140,12 @@ int main(int ac, char *av[])
         }
         j++;
     }
+
+    // stack_a = ra(stack_a);
+    // pa(&stack_a, &stack_b);
+    
+    stack_a = rra(stack_a);
+
     t_list *tmp = stack_a;
     while (tmp)
     {
