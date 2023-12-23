@@ -6,20 +6,21 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:34:05 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/23 14:29:39 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/23 18:27:44 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
 
 
-void ft_sort(t_list **stack_a)
+
+void ft_sort(t_list **stack_a, t_list **stack_b)
 {
     int len = ft_lstsize(*stack_a);
+    (void)stack_b;
     if (len == 3)
     {
-        if ((*stack_a)->data > (*stack_a)->next->data)
-            *stack_a = sa(*stack_a);
+        *stack_a = sort_three_numbers(*stack_a);
     }
 }
 int ft_check_space(char *s)
@@ -86,7 +87,7 @@ int empty(char *s)
 int main(int ac, char *av[])
 {
     t_list *stack_a = NULL;
-    // t_list *stack_b = NULL;
+    t_list *stack_b = NULL;
     char **str_arr;
     // ft_sort(&stack_a);
     if (ac < 1)
@@ -129,7 +130,7 @@ int main(int ac, char *av[])
         {
             if (!ft_isdigit(av[j]) || !ft_check_max_min(av[j]) || !ft_check_duplicate(av[j], stack_a))
             {
-                write(1, "Error\n", 6);
+                write(2, "Error\n", 6);
                 exit(1);
             }
             num = ft_atoi(av[j]);
@@ -141,16 +142,7 @@ int main(int ac, char *av[])
         j++;
     }
 
-    // stack_a = ra(stack_a);
-    // pa(&stack_a, &stack_b);
-    
-    stack_a = rra(stack_a);
+    ft_sort(&stack_a, &stack_b);
 
-    t_list *tmp = stack_a;
-    while (tmp)
-    {
-        printf("%d\n", tmp->data);
-        tmp = tmp->next;
-    }
     return 0;
 }

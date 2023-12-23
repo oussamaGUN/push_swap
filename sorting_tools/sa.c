@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:59:54 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/23 11:05:51 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/23 18:28:15 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ t_list *sa(t_list *stack_a)
     second = stack_a->next;
     stack_a->next = first; 
     first->next = second;
-    printf("sa\n");
+    write(1, "sa\n", 3);
     return stack_a;
 }

@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:32:43 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/23 13:21:13 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/23 18:28:32 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ t_list *ra(t_list *stack_a)
     while (tmp->next)
         tmp = tmp->next;
     tmp->next = first;
+    write(1, "ra\n", 3);
     return stack_a;    
 }
