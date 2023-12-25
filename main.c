@@ -6,22 +6,35 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:34:05 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/23 18:27:44 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/25 10:02:53 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
 
 
+t_list *sort_two(t_list *a)
+{
+    if (a->data > a->next->data)
+        a = sa(a);
+    return a;
+}
+t_list *sort_list(t_list *a, t_list *b)
+{
+    
+}
 
 void ft_sort(t_list **stack_a, t_list **stack_b)
 {
     int len = ft_lstsize(*stack_a);
     (void)stack_b;
-    if (len == 3)
-    {
+    if (len == 2)
+        *stack_a = sort_two(*stack_a);
+    else if (len == 3)
         *stack_a = sort_three_numbers(*stack_a);
-    }
+    else
+        *stack_a = sort_list(*stack_a, *stack_b);
+
 }
 int ft_check_space(char *s)
 {
