@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:34:05 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/26 22:22:45 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/26 22:35:49 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -335,11 +335,5 @@ int main(int ac, char *av[])
     if (!isorted(stack_a))
         return 0;
     ft_sort(&stack_a, &stack_b);
-    t_list *s = stack_a;
-    while (s)
-    {
-        printf("%d\n", s->data);
-        s = s->next;
-    }
     return 0;
 }
