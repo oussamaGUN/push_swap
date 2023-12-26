@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:29:00 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/23 18:36:06 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/26 17:53:26 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,18 @@ t_list *sort_three_numbers(t_list *a)
         middle->data > bottom->data)
     {
         a = sa(a);
-        a = rra(a);
+        a = rra(a, 'a');
     }
     else if (top->data > bottom->data && top->data < middle->data)
-        a = rra(a);
+        a = rra(a, 'a');
     else if (top->data < middle->data && top->data < bottom->data 
         && middle->data > bottom->data)
     {
         a = sa(a);
-        a = ra(a);
+        a = ra(a, 'a');
     }
     else if (top->data > bottom->data && top->data > middle->data &&
         middle->data < bottom->data)
-        a = ra(a);
+        a = ra(a, 'a');
     return a;
 }

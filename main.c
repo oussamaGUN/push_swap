@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:34:05 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/26 16:17:10 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/26 18:11:37 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int find_closest_smaller(int data, t_list *b)
     
     return closest;
 }
-t_list *turn_closest(t_list *b, int closest)
+t_list *turn_closest(t_list *b, int closest, char c)
 {
     int median = ft_lstsize(b) / 2 - 1;
     t_list *tmp = b;
@@ -49,11 +49,11 @@ t_list *turn_closest(t_list *b, int closest)
     if (flag == 1)
     {
         while (b->data != closest)
-            b = ra(b);
+            b = ra(b, c);
     }
     else
         while (b->data != closest)
-            b = rra(b);
+            b = rra(b, c);
     return b;
 }
 int find_max_in_list(t_list *b)
@@ -68,6 +68,7 @@ int find_max_in_list(t_list *b)
     }
     return max;
 }
+
 t_list *sort_b_from_biggest_to_smallest(t_list *b)
 {
     int median = ft_lstsize(b) / 2 - 1;
@@ -79,19 +80,19 @@ t_list *sort_b_from_biggest_to_smallest(t_list *b)
     while (i < median)
     {
         if (tmp->data == max)
-            flag = 1;
+            flag = 1;  
         i++;
         tmp = tmp->next;
     }
     if (flag == 1)
     {
         while (b->data != max)
-            b = rra(b);
+            b = rra(b, 'b');
     }
     else
     {
         while (b->data != max)
-            b = ra(b);
+            b = ra(b, 'b');
     }
     return b;
 }
@@ -130,18 +131,18 @@ t_list *push_all_the_nodes_to_a(t_list *a, t_list *b)
             closest = find_min_in_list(a);
         else
             closest = find_closest_bigger(tmp->data, a);
-        a = turn_closest(a, closest);
+        a = turn_closest(a, closest, 'a');
         tmp = tmp->next;
         pa(&a, &b);
     }
     return a;
 }
-t_list *sort_b_from_smallest_to_biggest(t_list *b)
+t_list *sort_a_from_smallest_to_biggest(t_list *a)
 {
-    int median = ft_lstsize(b) / 2 - 1;
-    t_list *tmp = b;
+    int median = ft_lstsize(a) / 2 - 1;
+    t_list *tmp = a;
     int flag = 0;
-    int min = find_min_in_list(b);
+    int min = find_min_in_list(a);
     
     int i = 0;
     while (i < median)
@@ -153,15 +154,15 @@ t_list *sort_b_from_smallest_to_biggest(t_list *b)
     }
     if (flag == 1)
     {
-        while (b->data != min)
-            b = rra(b);
+        while (a->data != min)
+            a = rra(a, 'a');
     }
     else
     {
-        while (b->data != min)
-            b = ra(b);
+        while (a->data != min)
+            a = ra(a, 'a');
     }
-    return b;
+    return a;
 }
 t_list *sort_list(t_list *a, t_list *b)
 {
@@ -178,21 +179,15 @@ t_list *sort_list(t_list *a, t_list *b)
             closest = find_max_in_list(b);
         else
             closest = find_closest_smaller(ptr->data, b);
-        b = turn_closest(b, closest);
+        b = turn_closest(b, closest, 'b');
         ptr = ptr->next;
         pb(&a, &b);
     }
     b = sort_b_from_biggest_to_smallest(b);
-    printf("---\n");
     a = sort_three_numbers(a);
     a = push_all_the_nodes_to_a(a, b);
-    a = sort_b_from_smallest_to_biggest(a);
-    t_list *s = a;
-    while (s)
-    {
-        printf("%d\n", s->data);
-        s = s->next;
-    }
+    a = sort_a_from_smallest_to_biggest(a);
+
     return a;
 }
 
@@ -204,7 +199,7 @@ void ft_sort(t_list **stack_a, t_list **stack_b)
         *stack_a = sort_two(*stack_a);
     else if (len == 3)
         *stack_a = sort_three_numbers(*stack_a);
-    else if (len >= 5)
+    else if (len >= 4)
         *stack_a = sort_list(*stack_a, *stack_b);
 
 }
@@ -340,6 +335,5 @@ int main(int ac, char *av[])
     if (!isorted(stack_a))
         return 0;
     ft_sort(&stack_a, &stack_b);
-
     return 0;
 }
