@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:34:05 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/26 18:11:37 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/26 22:22:45 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ t_list *sort_two(t_list *a)
 }
 
 
-int find_closest_smaller(int data, t_list *b)
+long find_closest_smaller(int data, t_list *b)
 {
-    int closest = INT_MIN;
+    long closest = LONG_MIN;
     while (b)
     {
         if (data > b->data && b->data > closest)
@@ -96,9 +96,9 @@ t_list *sort_b_from_biggest_to_smallest(t_list *b)
     }
     return b;
 }
-int find_closest_bigger(int data, t_list *a)
+long find_closest_bigger(int data, t_list *a)
 {
-    int closest = INT_MAX;
+    long closest = LONG_MAX;
     while (a)
     {
         if (data < a->data && a->data < closest)
@@ -123,11 +123,11 @@ int find_min_in_list(t_list *a)
 
 t_list *push_all_the_nodes_to_a(t_list *a, t_list *b)
 {
-    int closest;
+    long closest;
     t_list *tmp = b;
     while (tmp)
     {
-        if (find_closest_bigger(tmp->data, a) == INT_MAX)
+        if (find_closest_bigger(tmp->data, a) ==  LONG_MAX)
             closest = find_min_in_list(a);
         else
             closest = find_closest_bigger(tmp->data, a);
@@ -171,11 +171,11 @@ t_list *sort_list(t_list *a, t_list *b)
     pb(&a, &b);
 
     t_list *ptr = a;
-    int closest;
+    long closest;
     
     while (ptr && ft_lstsize(a) > 3)
     { 
-        if (find_closest_smaller(ptr->data, b) == INT_MIN) 
+        if (find_closest_smaller(ptr->data, b) == LONG_MIN) 
             closest = find_max_in_list(b);
         else
             closest = find_closest_smaller(ptr->data, b);
@@ -335,5 +335,11 @@ int main(int ac, char *av[])
     if (!isorted(stack_a))
         return 0;
     ft_sort(&stack_a, &stack_b);
+    t_list *s = stack_a;
+    while (s)
+    {
+        printf("%d\n", s->data);
+        s = s->next;
+    }
     return 0;
 }
