@@ -6,28 +6,31 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 09:37:04 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/27 09:40:36 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/27 10:08:22 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
 
-int ft_check_duplicate(char *s, t_list *lst)
+int	ft_check_duplicate(char *s, t_list *lst)
 {
-    int num = ft_atoi(s);
-    while (lst)
-    {
-        if (lst->data == num)
-            return 0;
-        lst = lst->next;
-    }
-    return 1;
+	int	num;
+
+	num = ft_atoi(s);
+	while (lst)
+	{
+		if (lst->data == num)
+			return (0);
+		lst = lst->next;
+	}
+	return (1);
 }
-int ft_check_max_min(char *s)
+
+int	ft_check_max_min(char *s)
 {
-    int		i;
-	int		sign;
-	long int		res;
+	int			i;
+	int			sign;
+	long int	res;
 
 	i = 0;
 	sign = 1;
@@ -44,30 +47,35 @@ int ft_check_max_min(char *s)
 		res = res * 10 + s[i] - '0';
 		i++;
 	}
-    res *= sign;
-    if (res < INT_MIN || res > INT_MAX)
-        return 0;
-    return 1;
+	res *= sign;
+	if (res < INT_MIN || res > INT_MAX)
+		return (0);
+	return (1);
 }
-void handle_error()
+
+void	handle_error(void)
 {
-    write(2, "Error\n", 6);
-    exit(1);
+	write(2, "Error\n", 6);
+	exit(1);
 }
-void conditions(char *s, t_list *stack_a)
+
+void	conditions(char *s, t_list *stack_a)
 {
-    if (!ft_isdigit(s) || !ft_check_max_min(s)
-        || !ft_check_duplicate(s, stack_a))
-        handle_error();
+	if (!ft_isdigit(s) || !ft_check_max_min(s)
+		|| !ft_check_duplicate(s, stack_a))
+		handle_error();
 }
-int ft_check_space(char *s)
+
+int	ft_check_space(char *s)
 {
-    int i = 0;
-    while (s[i])
-    {
-        if (s[i] == ' ')
-            return 0;
-        i++;
-    }
-    return 1;
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == ' ')
+			return (0);
+		i++;
+	}
+	return (1);
 }
