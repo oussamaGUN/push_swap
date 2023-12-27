@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:34:05 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/27 14:32:39 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:08:36 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,17 @@ int	main(int ac, char *av[])
 		handle_error();
 	while (++j < ac)
 	{
-		if (!empty(av[j]))
-			handle_error();
-		if (ft_check_space(av[j]) == 0)
+		if (ft_check_space(av[j], stack_a) == 0)
 			stack_a = check_error2_spaces_and_creat_list(av[j], stack_a);
 		else
 			stack_a = create_a_list(av[j], stack_a);
 	}
 	if (!isorted(stack_a))
+	{
+		ft_lstclear(&stack_a);
 		return (0);
+	}
 	ft_sort(&stack_a, &stack_b);
-	ft_lstclear(&stack_a, del);
+	ft_lstclear(&stack_a);
 	return (0);
 }

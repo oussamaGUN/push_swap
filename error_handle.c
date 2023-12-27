@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 09:37:04 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/27 10:53:59 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:59:35 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,18 +59,28 @@ void	handle_error(void)
 	exit(1);
 }
 
-void	conditions(char *s, t_list *stack_a)
+int	conditions(char *s, t_list *stack_a)
 {
 	if (!ft_isdigit(s) || !ft_check_max_min(s)
 		|| !ft_check_duplicate(s, stack_a))
-		handle_error();
+	{
+		write(2, "Error\n", 6);
+		return (0);
+	}
+	return (1);
 }
 
-int	ft_check_space(char *s)
+int	ft_check_space(char *s, t_list *a)
 {
 	int	i;
 
 	i = 0;
+	if (!empty(s))
+	{
+		write(2, "Error\n", 6);
+		ft_lstclear(&a);
+		exit(1);
+	}
 	while (s[i])
 	{
 		if (s[i] == ' ')

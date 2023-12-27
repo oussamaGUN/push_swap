@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 09:50:26 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/27 10:39:26 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:22:40 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ t_list	*sort_b_from_biggest_to_smallest(t_list *b)
 	tmp = b;
 	max = find_max_in_list(b);
 	i = 0;
+	flag = 0;
 	while (i < median)
 	{
 		if (tmp->data == max)

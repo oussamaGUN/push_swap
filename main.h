@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 10:47:29 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/27 14:38:49 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/27 17:06:41 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int		ft_isdigit(char *c);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*sort_three_numbers(t_list *a);
 void	handle_error(void);
-void	conditions(char *s, t_list *stack_a);
-int		ft_check_space(char *s);
+int		conditions(char *s, t_list *stack_a);
+int		ft_check_space(char *s, t_list *a);
 int		empty(char *s);
 int		isorted(t_list *a);
 t_list	*create_a_list(char *s, t_list *stack_a);
@@ -60,7 +60,6 @@ t_list	*push_all_the_nodes_to_a(t_list *a, t_list *b);
 t_list	*sort_a_from_smallest_to_biggest(t_list *a);
 long	find_closest_bigger(int data, t_list *a);
 int		find_min_in_list(t_list *a);
-void	ft_lstclear(t_list **lst, void (*del)(int *));
-void del(int *d);
+void	ft_lstclear(t_list **lst);
 
 #endif
