@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:34:05 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/26 22:35:49 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/27 09:39:03 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,12 +155,12 @@ t_list *sort_a_from_smallest_to_biggest(t_list *a)
     if (flag == 1)
     {
         while (a->data != min)
-            a = rra(a, 'a');
+            a = ra(a, 'a');
     }
     else
     {
         while (a->data != min)
-            a = ra(a, 'a');
+            a = rra(a, 'a');
     }
     return a;
 }
@@ -215,44 +215,8 @@ int ft_check_space(char *s)
     return 1;
 }
 
-int ft_check_max_min(char *s)
-{
-    int		i;
-	int		sign;
-	long int		res;
 
-	i = 0;
-	sign = 1;
-	res = 0;
 
-	if (s[i] == '-')
-	{
-		sign *= -1;
-		i++;
-	}
-	else if (s[i] == '+')
-		i++;
-	while (s[i] >= '0' && s[i] <= '9')
-	{
-		res = res * 10 + s[i] - '0';
-		i++;
-	}
-    res *= sign;
-    if (res < INT_MIN || res > INT_MAX)
-        return 0;
-    return 1;
-}
-int ft_check_duplicate(char *s, t_list *lst)
-{
-    int num = ft_atoi(s);
-    while (lst)
-    {
-        if (lst->data == num)
-            return 0;
-        lst = lst->next;
-    }
-    return 1;
-}
 int empty(char *s)
 {
     int i = 0;
@@ -275,62 +239,62 @@ int isorted(t_list *a)
     }
     return 0;
 }
-int main(int ac, char *av[])
+
+t_list *check_error2_spaces_and_creat_list(char *s, t_list *stack_a)
 {
-    t_list *stack_a = NULL;
-    t_list *stack_b = NULL;
-    char **str_arr;
-    // ft_sort(&stack_a);
-    if (ac < 1)
-        return 0;
-    int j = 1;
-    int i = 0;
-    int num = 0;
-    while (j < ac)
+    int     i;
+    char    **str_arr;
+    t_list  *lst;
+    int     h;
+    int num;
+
+    if (ft_check_space(s) == 0)
     {
-        if (!empty(av[j]))
+        str_arr = ft_split(s, ' ');
+        i = -1;
+        while (str_arr[++i])
         {
-            write(2, "Error\n", 6);
-            exit(1);
-        }
-        if (ft_check_space(av[j]) == 0)
-        {
-            str_arr = ft_split(av[j], ' ');
-            i = 0;
-            while (str_arr[i])
-            {
-                if (!ft_isdigit(str_arr[i]) || !ft_check_max_min(str_arr[i])
-                    || !ft_check_duplicate(str_arr[i], stack_a))
-                {
-                    write(2, "Error\n", 6);
-                    exit(1);
-                }
-                num = ft_atoi(str_arr[i]);
-                t_list *lst = ft_lstnew(num);
-                if (!lst)
-                    return 0;
-                ft_lstadd_back(&stack_a, lst);
-                i++;
-            }
-            int h = 0;
-            while (str_arr[h])
-                free(str_arr[h++]);
-            free(str_arr);
-        }
-        else
-        {
-            if (!ft_isdigit(av[j]) || !ft_check_max_min(av[j]) || !ft_check_duplicate(av[j], stack_a))
-            {
-                write(2, "Error\n", 6);
-                exit(1);
-            }
-            num = ft_atoi(av[j]);
-            t_list *lst = ft_lstnew(num);
+            conditions(str_arr[i], stack_a);
+            num = ft_atoi(str_arr[i]);
+            lst = ft_lstnew(num);
             if (!lst)
                 return 0;
             ft_lstadd_back(&stack_a, lst);
         }
-        j++;
+        h = 0;
+        while (str_arr[h])
+            free(str_arr[h++]);
+        free(str_arr);
+    }
+    return stack_a;
+}
+t_list *create_a_list(char *s, t_list *stack_a)
+{
+    int num;
+    conditions(s, stack_a);
+    num = ft_atoi(s);
+    t_list *lst = ft_lstnew(num);
+    if (!lst)
+        return 0;
+    ft_lstadd_back(&stack_a, lst);
+    return stack_a;
+}
+int main(int ac, char *av[])
+{
+    t_list *stack_a = NULL;
+    t_list *stack_b = NULL;
+    int j = 0;
+
+    if (ac < 2)
+        handle_error();
+    while (++j < ac)
+    {
+        if (!empty(av[j]))
+            handle_error(av[j]);
+        if (ft_check_space(av[j]) == 0)
+            stack_a = check_error2_spaces_and_creat_list(av[j], stack_a);
+        else
+            stack_a = create_a_list(av[j], stack_a);
     }
     if (!isorted(stack_a))
         return 0;

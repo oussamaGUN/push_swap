@@ -29,4 +29,6 @@ char	**ft_split(char const *s, char c);
 int	ft_isdigit(char *c);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list *sort_three_numbers(t_list *a);
+void handle_error();
+void conditions(char *s, t_list *stack_a);
 #endif
