@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 09:50:26 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/27 16:22:40 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/27 18:05:33 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_list	*turn_closest(t_list *b, int closest, char c)
 	int		flag;
 	int		i;
 
-	median = ft_lstsize(b) / 2 - 1;
+	median = ft_lstsize(b) / 2;
 	tmp = b;
 	flag = 0;
 	i = 0;
@@ -93,9 +93,9 @@ t_list	*sort_b_from_biggest_to_smallest(t_list *b)
 	}
 	if (flag == 1)
 		while (b->data != max)
-			b = rra(b, 'b');
+			b = ra(b, 'b');
 	else
 		while (b->data != max)
-			b = ra(b, 'b');
+			b = rra(b, 'b');
 	return (b);
 }

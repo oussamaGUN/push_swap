@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 09:53:34 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/27 10:45:26 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/27 18:03:11 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_list	*sort_a_from_smallest_to_biggest(t_list *a)
 	int		min;
 	int		i;
 
-	median = ft_lstsize(a) / 2 - 1;
+	median = ft_lstsize(a) / 2;
 	tmp = a;
 	flag = 0;
 	min = find_min_in_list(a);
