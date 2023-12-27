@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:29:00 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/26 17:53:26 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/27 09:47:38 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,23 @@ t_list *sort_three_numbers(t_list *a)
         middle->data < bottom->data)
         a = ra(a, 'a');
     return a;
+}
+
+t_list *sort_two(t_list *a)
+{
+    if (a->data > a->next->data)
+        a = sa(a);
+    return a;
+}
+void ft_sort(t_list **stack_a, t_list **stack_b)
+{
+    int len = ft_lstsize(*stack_a);
+    (void)stack_b;
+    if (len == 2)
+        *stack_a = sort_two(*stack_a);
+    else if (len == 3)
+        *stack_a = sort_three_numbers(*stack_a);
+    else if (len >= 4)
+        *stack_a = sort_list(*stack_a, *stack_b);
+
 }

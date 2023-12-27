@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 09:37:04 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/27 09:39:15 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/27 09:40:36 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,15 @@ void conditions(char *s, t_list *stack_a)
     if (!ft_isdigit(s) || !ft_check_max_min(s)
         || !ft_check_duplicate(s, stack_a))
         handle_error();
+}
+int ft_check_space(char *s)
+{
+    int i = 0;
+    while (s[i])
+    {
+        if (s[i] == ' ')
+            return 0;
+        i++;
+    }
+    return 1;
 }
