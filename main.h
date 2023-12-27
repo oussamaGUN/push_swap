@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 10:47:29 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/27 10:52:21 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/27 14:38:49 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,7 @@ t_list	*push_all_the_nodes_to_a(t_list *a, t_list *b);
 t_list	*sort_a_from_smallest_to_biggest(t_list *a);
 long	find_closest_bigger(int data, t_list *a);
 int		find_min_in_list(t_list *a);
+void	ft_lstclear(t_list **lst, void (*del)(int *));
+void del(int *d);
 
 #endif

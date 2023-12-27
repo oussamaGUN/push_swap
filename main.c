@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:34:05 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/27 10:53:45 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/27 14:32:39 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ int	main(int ac, char *av[])
 	if (!isorted(stack_a))
 		return (0);
 	ft_sort(&stack_a, &stack_b);
+	ft_lstclear(&stack_a, del);
 	return (0);
 }
