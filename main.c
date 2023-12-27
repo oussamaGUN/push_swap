@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:34:05 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/27 10:03:44 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/27 10:53:45 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int ac, char *av[])
 	while (++j < ac)
 	{
 		if (!empty(av[j]))
-			handle_error(av[j]);
+			handle_error();
 		if (ft_check_space(av[j]) == 0)
 			stack_a = check_error2_spaces_and_creat_list(av[j], stack_a);
 		else
