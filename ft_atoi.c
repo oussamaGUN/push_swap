@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 10:17:32 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/22 10:45:00 by ousabbar         ###   ########.fr       */
+/*   Created: 2023/12/18 17:53:09 by ousabbar          #+#    #+#             */
+/*   Updated: 2023/12/27 11:36:09 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../main.h"
+#include "main.h"
 
-int	ft_isdigit(char *c)
+int	ft_atoi(const char *nptr)
 {
-	int i = 0;
-    if (c[i] == '-' || c[i] == '+')
-        i++;
-    while (c[i])
-    {
-        if (c[i] < '0' || c[i] > '9')
-            return 0;
-        i++;
-    }
-    return 1;
+	int		i;
+	int		sign;
+	int		res;
+
+	i = 0;
+	sign = 1;
+	res = 0;
+	if (nptr[i] == '-')
+	{
+		sign *= -1;
+		i++;
+	}
+	else if (nptr[i] == '+')
+		i++;
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		res = res * 10 + nptr[i] - 48;
+		i++;
+	}
+	return (res * sign);
 }

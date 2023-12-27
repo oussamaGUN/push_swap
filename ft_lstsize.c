@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_new.c                                          :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 10:26:45 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/18 17:50:44 by ousabbar         ###   ########.fr       */
+/*   Created: 2023/12/19 11:39:32 by ousabbar          #+#    #+#             */
+/*   Updated: 2023/12/27 11:36:13 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../main.h"
+#include "main.h"
 
-t_list	*ft_lstnew(int content)
+int	ft_lstsize(t_list *lst)
 {
-	t_list	*new;
+	int		i;
+	t_list	*tmp;
 
-	new = malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	if (!content)
-		new->data = 0;
-	else
-		new->data = content;
-	new->next = NULL;
-	return (new);
+	tmp = lst;
+	i = 0;
+	if (tmp)
+	{
+		while (tmp)
+		{
+			i++;
+			tmp = tmp->next;
+			if (tmp == lst)
+				return (i);
+		}
+	}
+	return (i);
 }

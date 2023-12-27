@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_addback.c                                      :+:      :+:    :+:   */
+/*   lst_addfront.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/23 11:23:02 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/23 11:23:31 by ousabbar         ###   ########.fr       */
+/*   Created: 2023/12/18 18:00:00 by ousabbar          #+#    #+#             */
+/*   Updated: 2023/12/27 11:36:24 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../main.h"
+#include "main.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*ptr;
-
-	if (lst && *lst)
+	if (lst)
 	{
-		ptr = *lst;
-		while (ptr->next)
-			ptr = ptr->next;
-		ptr->next = new;
-	}
-	else if (lst)
+		if (*lst)
+			new->next = *lst;
 		*lst = new;
+	}
 }

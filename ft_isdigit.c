@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_addfront.c                                     :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 18:00:00 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/19 15:02:44 by ousabbar         ###   ########.fr       */
+/*   Created: 2023/12/22 10:17:32 by ousabbar          #+#    #+#             */
+/*   Updated: 2023/12/27 11:36:11 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../main.h"
-void	ft_lstadd_front(t_list **lst, t_list *new)
+#include "main.h"
+
+int	ft_isdigit(char *c)
 {
-	if (lst)
+	int	i;
+
+	i = 0;
+	if (c[i] == '-' || c[i] == '+')
+		i++;
+	while (c[i])
 	{
-		if (*lst)
-			new->next = *lst;
-		*lst = new;
+		if (c[i] < '0' || c[i] > '9')
+			return (0);
+		i++;
 	}
+	return (1);
 }

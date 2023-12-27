@@ -6,11 +6,11 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 17:28:13 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/22 10:02:32 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/27 11:36:19 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../main.h"
+#include "main.h"
 
 int	word(char *s, char c)
 {

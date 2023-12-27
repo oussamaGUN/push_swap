@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ss.c                                               :+:      :+:    :+:   */
+/*   lst_new.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/23 14:57:23 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/23 15:02:50 by ousabbar         ###   ########.fr       */
+/*   Created: 2023/12/18 10:26:45 by ousabbar          #+#    #+#             */
+/*   Updated: 2023/12/27 11:36:29 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../main.h"
+#include "main.h"
 
-void ss(t_list **a, t_list **b)
+t_list	*ft_lstnew(int content)
 {
-    *a = sa(*a);
-    *b = sa(*b);
+	t_list	*new;
+
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	if (!content)
+		new->data = 0;
+	else
+		new->data = content;
+	new->next = NULL;
+	return (new);
 }

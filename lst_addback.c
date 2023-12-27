@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   lst_addback.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 17:53:09 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/22 10:16:00 by ousabbar         ###   ########.fr       */
+/*   Created: 2023/12/23 11:23:02 by ousabbar          #+#    #+#             */
+/*   Updated: 2023/12/27 11:36:21 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../main.h"
+#include "main.h"
 
-int	ft_atoi(const char *nptr)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int		i;
-	int		sign;
-	int		res;
+	t_list	*ptr;
 
-	i = 0;
-	sign = 1;
-	res = 0;
-
-	if (nptr[i] == '-')
+	if (lst && *lst)
 	{
-		sign *= -1;
-		i++;
+		ptr = *lst;
+		while (ptr->next)
+			ptr = ptr->next;
+		ptr->next = new;
 	}
-	else if (nptr[i] == '+')
-		i++;
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		res = res * 10 + nptr[i] - 48;
-		i++;
-	}
-	return (res * sign);
+	else if (lst)
+		*lst = new;
 }
