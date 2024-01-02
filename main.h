@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 10:47:29 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/27 17:06:41 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/30 18:20:52 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@
 
 typedef struct s_list
 {
+	int				mid_a;
 	int				data;
+	int				closest;
 	struct s_list	*next;
 }	t_list;
 
@@ -32,8 +34,6 @@ void	ss(t_list **a, t_list **b);
 void	pa(t_list **stack_a, t_list **stack_b);
 t_list	*ra(t_list *stack_a, char c);
 t_list	*rra(t_list *stack_a, char c);
-void	rr(t_list **a, t_list **b);
-void	rrr(t_list **a, t_list **b);
 void	pb(t_list **stack_a, t_list **stack_b);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
@@ -61,5 +61,9 @@ t_list	*sort_a_from_smallest_to_biggest(t_list *a);
 long	find_closest_bigger(int data, t_list *a);
 int		find_min_in_list(t_list *a);
 void	ft_lstclear(t_list **lst);
-
+t_list *find_cheapest(t_list *a, t_list *b);
+void rr(t_list **a, t_list **b, char c);
+void rrr(t_list **a, t_list **b, char c);
+void adjust(t_list **a, t_list **b, t_list *perfect);
+int set_target(int data, t_list *b);
 #endif

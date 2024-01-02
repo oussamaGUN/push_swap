@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 09:50:26 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/27 18:05:33 by ousabbar         ###   ########.fr       */
+/*   Updated: 2024/01/02 10:48:47 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,21 @@ long	find_closest_smaller(int data, t_list *b)
 	closest = LONG_MIN;
 	while (b)
 	{
-		if (data > b->data && b->data > closest)
+		if (data > b->data && b->data > closest && data > closest)
 			closest = b->data;
 		b = b->next;
 	}
+	// printf("----%d %lu----\n", data, closest);
 	return (closest);
 }
 
 int	find_max_in_list(t_list *b)
 {
 	t_list	*tmp;
-	int		max;
+	long		max;
 
 	tmp = b;
-	max = tmp->data;
+	max = LONG_MIN;
 	while (tmp)
 	{
 		if (tmp->data > max)
@@ -53,7 +54,7 @@ t_list	*turn_closest(t_list *b, int closest, char c)
 	tmp = b;
 	flag = 0;
 	i = 0;
-	while (i < median)
+	while (i <= median)
 	{
 		if (tmp->data == closest)
 			flag = 1;
@@ -79,12 +80,12 @@ t_list	*sort_b_from_biggest_to_smallest(t_list *b)
 	int		max;
 	int		i;
 
-	median = ft_lstsize(b) / 2 - 1;
+	median = ft_lstsize(b) / 2;
 	tmp = b;
 	max = find_max_in_list(b);
 	i = 0;
 	flag = 0;
-	while (i < median)
+	while (i <= median)
 	{
 		if (tmp->data == max)
 			flag = 1;

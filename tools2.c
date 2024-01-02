@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 09:53:34 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/27 18:03:11 by ousabbar         ###   ########.fr       */
+/*   Updated: 2024/01/02 12:49:30 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ t_list	*sort_a_from_smallest_to_biggest(t_list *a)
 	flag = 0;
 	min = find_min_in_list(a);
 	i = 0;
-	while (i < median)
+	while (i <= median)
 	{
 		if (tmp->data == min)
-			flag = 1;
+			flag = 0;
 		i++;
 		tmp = tmp->next;
 	}
-	if (flag == 1)
+	if (flag == 0)
 		while (a->data != min)
 			a = ra(a, 'a');
 	else
@@ -77,10 +77,10 @@ long	find_closest_bigger(int data, t_list *a)
 int	find_min_in_list(t_list *a)
 {
 	t_list	*tmp;
-	int		min;
+	long		min;
 
 	tmp = a;
-	min = tmp->data;
+	min = LONG_MAX;
 	while (tmp)
 	{
 		if (tmp->data < min)

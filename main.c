@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:34:05 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/27 16:08:36 by ousabbar         ###   ########.fr       */
+/*   Updated: 2024/01/01 08:56:46 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int ac, char *av[])
 	stack_a = NULL;
 	stack_b = NULL;
 	if (ac < 2)
-		handle_error();
+		return (0);
 	while (++j < ac)
 	{
 		if (ft_check_space(av[j], stack_a) == 0)

@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 13:06:29 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/27 11:13:38 by ousabbar         ###   ########.fr       */
+/*   Updated: 2023/12/28 15:10:23 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,7 @@ t_list	*rra(t_list *stack_a, char c)
 		write(1, "rra\n", 4);
 	else if (c == 'b')
 		write(1, "rrb\n", 4);
+	else if (c == 'd')
+		write(1, "rrr\n", 4);
 	return (stack_a);
 }
