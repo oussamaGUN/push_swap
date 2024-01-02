@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 10:21:50 by ousabbar          #+#    #+#             */
-/*   Updated: 2024/01/02 11:08:34 by ousabbar         ###   ########.fr       */
+/*   Updated: 2024/01/02 15:47:37 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,10 +168,10 @@ t_list *find_cheapest(t_list *a, t_list *b)
 	while (tmp)
 	{
 		count_moves = push_cost(tmp->data, len, a) + push_cost_b(set_target(tmp->data, b), b);
-		count_both = push_cost_stacks(a, b, set_target(tmp->data, b), tmp->data);
+		// count_both = push_cost_stacks(a, b, set_target(tmp->data, b), tmp->data);
 		// printf("--(%d) %d %d--\n",tmp->data, count_moves, count_both);
-		if (count_both < count_moves && count_both)
-			count_moves = count_both;
+		// if (count_both < count_moves && count_both)
+			// count_moves = count_both;
 		// printf(" %d\n", count_moves);
 		if (count_moves < moves)
 		{
