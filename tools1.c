@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 09:50:26 by ousabbar          #+#    #+#             */
-/*   Updated: 2024/01/02 15:21:11 by ousabbar         ###   ########.fr       */
+/*   Updated: 2024/01/02 22:08:41 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,12 @@ long	find_closest_smaller(int data, t_list *b)
 			closest = b->data;
 		b = b->next;
 	}
-	// printf("----%d %lu----\n", data, closest);
 	return (closest);
 }
 
 int	find_max_in_list(t_list *b)
 {
-	t_list	*tmp;
+	t_list		*tmp;
 	long		max;
 
 	tmp = b;

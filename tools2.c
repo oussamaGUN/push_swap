@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 09:53:34 by ousabbar          #+#    #+#             */
-/*   Updated: 2024/01/02 15:22:05 by ousabbar         ###   ########.fr       */
+/*   Updated: 2024/01/02 22:09:18 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ long	find_closest_bigger(int data, t_list *a)
 
 int	find_min_in_list(t_list *a)
 {
-	t_list	*tmp;
+	t_list		*tmp;
 	long		min;
 
 	tmp = a;

@@ -6,35 +6,36 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 18:34:16 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/29 15:30:28 by ousabbar         ###   ########.fr       */
+/*   Updated: 2024/01/02 22:06:35 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../main.h"
 
-void rrr(t_list **a, t_list **b, char c)
+void	rrr(t_list **a, t_list **b, char c)
 {
-    if (c != 'd' && c != 'c')
-    {
-        *a = rra(*a, 'h');
-        *b = rra(*b, 'h');
-    }
-    else
-    {
-        *a = rra(*a, 'd');
-        *b = rra(*b, 'c');
-    }
+	if (c != 'd' && c != 'c')
+	{
+		*a = rra(*a, 'h');
+		*b = rra(*b, 'h');
+	}
+	else
+	{
+		*a = rra(*a, 'd');
+		*b = rra(*b, 'c');
+	}
 }
-void rr(t_list **a, t_list **b, char c)
+
+void	rr(t_list **a, t_list **b, char c)
 {
-    if (c != 'd' && c != 'c')
-    {
-        *a = ra(*a, 'h');
-        *b = ra(*b, 'h');
-    }
-    else
-    {
-        *a = ra(*a, 'd');
-        *b = ra(*b, 'c');
-    }
+	if (c != 'd' && c != 'c')
+	{
+		*a = ra(*a, 'h');
+		*b = ra(*b, 'h');
+	}
+	else
+	{
+		*a = ra(*a, 'd');
+		*b = ra(*b, 'c');
+	}
 }
