@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 17:33:01 by ousabbar          #+#    #+#             */
-/*   Updated: 2024/01/03 18:47:32 by ousabbar         ###   ########.fr       */
+/*   Updated: 2024/01/03 21:19:25 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,13 @@ void rrr_and_rr(t_list **stack_a, t_list **stack_b, char *s)
 	else if (strcmp(s, "ss\n") == 0)
 		ss(stack_a, stack_b, 'g');
 }
-
+void push(t_list **stack_a, t_list **stack_b, char *s)
+{
+		if (strcmp(s, "pb\n") == 0 && stack_a)	
+			pb(stack_a, stack_b, 's');
+		else if (strcmp(s, "pa\n") == 0 && stack_b)
+			pa(stack_a, stack_b, 's');
+}
 void checks(t_list *stack_a, t_list *stack_b)
 {
 	char	*s;
@@ -74,10 +80,8 @@ void checks(t_list *stack_a, t_list *stack_b)
 	s = get_next_line(0);
 	while (s != NULL)
 	{
-		if (strcmp(s, "pb\n") == 0 && stack_a)	
-			pb(&stack_a, &stack_b, 's');
-		else if (strcmp(s, "pa\n") == 0 && stack_b)
-			pa(&stack_a, &stack_b, 's');
+		if ((strcmp(s, "pb\n") == 0 && stack_a) || (strcmp(s, "pa\n") == 0 && stack_b))
+			push(&stack_a, &stack_b, s);
 		else if ((strcmp(s, "ra\n") == 0
 			|| strcmp(s, "rra\n") == 0 || strcmp(s, "sa\n") == 0) && stack_a)
 			stack_a = check_for_a(stack_a, s);
