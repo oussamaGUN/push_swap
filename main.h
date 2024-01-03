@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 10:47:29 by ousabbar          #+#    #+#             */
-/*   Updated: 2024/01/02 22:08:06 by ousabbar         ###   ########.fr       */
+/*   Updated: 2024/01/03 09:23:16 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,12 @@ void	rrr(t_list **a, t_list **b, char c);
 void	adjust(t_list **a, t_list **b, t_list *perfect);
 int		set_target(int data, t_list *b);
 int		ft_median(t_list *b, int data, int len);
-void	if_median_first_con(t_list **a, t_list **b, int closest, t_list *perfect);
-void	if_median_second_con(t_list **a, t_list **b, int closest, t_list *perfect);
-void	if_median_third_con(t_list **a, t_list **b, int closest, t_list *perfect);
-void	if_median_four_con(t_list **a, t_list **b, int closest, t_list *perfect);
+void	if_median_first_con(t_list **a, t_list **b,
+			int closest, t_list *perfect);
+void	if_median_second_con(t_list **a, t_list **b,
+			int closest, t_list *perfect);
+void	if_median_third_con(t_list **a, t_list **b,
+			int closest, t_list *perfect);
+void	if_median_four_con(t_list **a, t_list **b,
+			int closest, t_list *perfect);
 #endif
