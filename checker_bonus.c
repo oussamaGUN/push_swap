@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 17:33:01 by ousabbar          #+#    #+#             */
-/*   Updated: 2024/01/03 17:57:09 by ousabbar         ###   ########.fr       */
+/*   Updated: 2024/01/03 18:00:39 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,19 +93,6 @@ void checks(t_list *stack_a, t_list *stack_b)
 		}
 		free(s);
 		s = get_next_line(0);
-	}
-	t_list *a = stack_a;
-	while (a)
-	{
-		printf("%d\n", a->data);
-		a = a->next;
-	}
-	printf("----\n");
-	t_list *b = stack_b;
-	while (b)
-	{
-		printf("%d\n", b->data);
-		b = b->next;
 	}
 	conditions_bonus(stack_a,stack_b, s);
 }
