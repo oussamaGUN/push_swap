@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 09:53:34 by ousabbar          #+#    #+#             */
-/*   Updated: 2024/01/02 22:09:18 by ousabbar         ###   ########.fr       */
+/*   Updated: 2024/01/03 11:16:42 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_list	*push_all_the_nodes_to_a(t_list *a, t_list *b)
 			closest = find_closest_bigger(tmp->data, a);
 		a = turn_closest(a, closest, 'a');
 		tmp = tmp->next;
-		pa(&a, &b);
+		pa(&a, &b, 'a');
 	}
 	return (a);
 }
@@ -53,10 +53,10 @@ t_list	*sort_a_from_smallest_to_biggest(t_list *a)
 	}
 	if (flag == 0)
 		while (a->data != min)
-			a = ra(a, 'a');
+			a = rra(a, 'a');
 	else
 		while (a->data != min)
-			a = rra(a, 'a');
+			a = ra(a, 'a');
 	return (a);
 }
 

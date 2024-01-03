@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 17:40:04 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/27 17:40:33 by ousabbar         ###   ########.fr       */
+/*   Updated: 2024/01/03 10:06:52 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #  define BUFFER_SIZE 42
 
-# endif
+
 # include <stdlib.h>
 # include <stdio.h>
 # include <fcntl.h>

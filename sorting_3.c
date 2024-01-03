@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:29:00 by ousabbar          #+#    #+#             */
-/*   Updated: 2023/12/27 11:45:01 by ousabbar         ###   ########.fr       */
+/*   Updated: 2024/01/03 10:59:20 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_list	*sa_rra_function(t_list *a)
 {
-	a = sa(a);
+	a = sa(a, 'a');
 	a = rra(a, 'a');
 	return (a);
 }
@@ -30,7 +30,7 @@ t_list	*sort_three_numbers(t_list *a)
 	bottom = a->next->next;
 	if (top->data > middle->data && top->data < bottom->data
 		&& middle->data < bottom->data)
-		a = sa(a);
+		a = sa(a, 'a');
 	else if (top->data > bottom->data && top->data > middle->data
 		&& middle->data > bottom->data)
 		a = sa_rra_function(a);
@@ -39,7 +39,7 @@ t_list	*sort_three_numbers(t_list *a)
 	else if (top->data < middle->data && top->data < bottom->data
 		&& middle->data > bottom->data)
 	{
-		a = sa(a);
+		a = sa(a, 'a');
 		a = ra(a, 'a');
 	}
 	else if (top->data > bottom->data && top->data > middle->data
@@ -51,7 +51,7 @@ t_list	*sort_three_numbers(t_list *a)
 t_list	*sort_two(t_list *a)
 {
 	if (a->data > a->next->data)
-		a = sa(a);
+		a = sa(a, 'a');
 	return (a);
 }
 

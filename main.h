@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 10:47:29 by ousabbar          #+#    #+#             */
-/*   Updated: 2024/01/03 09:23:16 by ousabbar         ###   ########.fr       */
+/*   Updated: 2024/01/03 17:55:08 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <string.h>
 # include <limits.h>
 
+
 typedef struct s_list
 {
 	int				mid_a;
@@ -28,13 +29,11 @@ typedef struct s_list
 }	t_list;
 
 t_list	*ft_lstnew(int content);
-t_list	*sa(t_list *stack_a);
-t_list	*sb(t_list *stack_b);
-void	ss(t_list **a, t_list **b);
-void	pa(t_list **stack_a, t_list **stack_b);
+t_list	*sa(t_list *stack_a, char c);
+void	pa(t_list **stack_a, t_list **stack_b, char c);
 t_list	*ra(t_list *stack_a, char c);
 t_list	*rra(t_list *stack_a, char c);
-void	pb(t_list **stack_a, t_list **stack_b);
+void	pb(t_list **stack_a, t_list **stack_b, char c);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
 int		ft_atoi(const char *nptr);
@@ -75,4 +74,5 @@ void	if_median_third_con(t_list **a, t_list **b,
 			int closest, t_list *perfect);
 void	if_median_four_con(t_list **a, t_list **b,
 			int closest, t_list *perfect);
+void ss(t_list **a, t_list **b, char c);
 #endif
