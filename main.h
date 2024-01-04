@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 10:47:29 by ousabbar          #+#    #+#             */
-/*   Updated: 2024/01/03 17:55:08 by ousabbar         ###   ########.fr       */
+/*   Updated: 2024/01/04 09:57:38 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,13 @@ void	if_median_third_con(t_list **a, t_list **b,
 void	if_median_four_con(t_list **a, t_list **b,
 			int closest, t_list *perfect);
 void ss(t_list **a, t_list **b, char c);
+void ft_free_1(t_list **a, t_list **b);
+int empty_stack(t_list *b);
+void conditions_bonus(t_list *stack_a, t_list *stack_b, char *s);
+void checks(t_list *stack_a, t_list *stack_b);
+void	push(t_list **stack_a, t_list **stack_b, char *s);
+void	rrr_and_rr(t_list **stack_a, t_list **stack_b, char *s);
+t_list	*check_for_a(t_list *stack_a, char *s);
+t_list	*check_for_b(t_list *stack_b, char *s);
+int	c(char *s1, char *s2);
 #endif

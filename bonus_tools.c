@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_new.c                                          :+:      :+:    :+:   */
+/*   bonus_tools.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 10:26:45 by ousabbar          #+#    #+#             */
-/*   Updated: 2024/01/03 22:25:00 by ousabbar         ###   ########.fr       */
+/*   Created: 2024/01/04 09:31:24 by ousabbar          #+#    #+#             */
+/*   Updated: 2024/01/04 09:35:51 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
 
-t_list	*ft_lstnew(int content)
+void	ft_free_1(t_list **a, t_list **b)
 {
-	t_list	*new;
+	ft_lstclear(a);
+	ft_lstclear(b);
+}
 
-	new = malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	if (!content)
-		new->data = 0;
-	else
-		new->data = content;
-	new->next = NULL;
-	return (new);
+int	empty_stack(t_list *b)
+{
+	if (b == NULL)
+		return (1);
+	return (0);
+}
+
+void	conditions_bonus(t_list *stack_a, t_list *stack_b, char *s)
+{
+	if (!s)
+	{
+		if (!isorted(stack_a) && empty_stack(stack_b) == 1)
+			write(1, "OK\n", 3);
+		else
+			write(1, "KO\n", 3);
+	}
+	ft_lstclear(&stack_a);
+	ft_lstclear(&stack_b);
+	free(s);
 }

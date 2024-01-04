@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_new.c                                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 10:26:45 by ousabbar          #+#    #+#             */
-/*   Updated: 2024/01/03 22:25:00 by ousabbar         ###   ########.fr       */
+/*   Created: 2024/01/04 09:56:07 by ousabbar          #+#    #+#             */
+/*   Updated: 2024/01/04 09:57:30 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
 
-t_list	*ft_lstnew(int content)
+int	c(char *s1, char *s2)
 {
-	t_list	*new;
+	unsigned int	i;
 
-	new = malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	if (!content)
-		new->data = 0;
-	else
-		new->data = content;
-	new->next = NULL;
-	return (new);
+	i = 0;
+	while (s1[i] == s2[i] && (s1[i] != '\0' || s2[i] != '\0'))
+	{
+		i++;
+	}
+	return (s1[i] - s2[i]);
 }
