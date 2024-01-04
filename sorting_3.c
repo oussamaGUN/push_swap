@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:29:00 by ousabbar          #+#    #+#             */
-/*   Updated: 2024/01/03 10:59:20 by ousabbar         ###   ########.fr       */
+/*   Updated: 2024/01/04 16:08:51 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	ft_sort(t_list **stack_a, t_list **stack_b)
 	int	len;
 
 	len = ft_lstsize(*stack_a);
-	(void)stack_b;
 	if (len == 2)
 		*stack_a = sort_two(*stack_a);
 	else if (len == 3)

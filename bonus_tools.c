@@ -6,12 +6,11 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 09:31:24 by ousabbar          #+#    #+#             */
-/*   Updated: 2024/01/04 15:21:07 by ousabbar         ###   ########.fr       */
+/*   Updated: 2024/01/04 16:09:58 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
-
 
 int	empty_stack(t_list *b)
 {
