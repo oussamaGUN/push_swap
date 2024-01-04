@@ -14,8 +14,32 @@ CLFAGS = -Wall -Wextra
 
 NAME = push_swap
 
-all: main.c
-	gcc $(SRC) $(CLFAGS) -o $(NAME)
+NAME_BONUS = checker_bonus
 
-bonus: checker_bonus.c
-	gcc $(BONUS) $(CLFAGS) -o checker_bonus	
+OBJC = $(SRC:.c=.o)
+
+OBJ_BONUS = $(BONUS:.c=.c)
+
+all: $(NAME)
+
+$(NAME): $(OBJC)
+	gcc $(OBJC) $(CLFAGS) -o $(NAME)
+
+%.o: %.c
+	gcc -c $< -o $@
+
+bonus: $(OBJ_BONUS)
+
+$(NAME_BONUS):$(OBJ_BONUS)
+	gcc $(OBJ_BONUS) $(CLFAGS) -o $(NAME_BONUS)
+
+%.o: %.c
+	gcc -c $< -o $@
+
+clean:
+	rm -rf $(OBJC)
+
+fclean: clean
+	rm -rf $(NAME) $(NAME_BONUS)
+
+re: fclean all
