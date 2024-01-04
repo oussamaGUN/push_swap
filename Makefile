@@ -33,7 +33,7 @@ $(NAME): $(OBJC)
 bonus: $(NAME_BONUS)
 
 $(NAME_BONUS): $(OBJ_BONUS)
-	$(CC)  $(OBJ_BONUS) -o $(NAME_BONUS) -fsanitize=address -g3
+	$(CC)  $(OBJ_BONUS) -o $(NAME_BONUS)
 
 
 clean:
