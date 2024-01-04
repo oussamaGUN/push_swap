@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 09:44:46 by ousabbar          #+#    #+#             */
-/*   Updated: 2024/01/03 22:20:29 by ousabbar         ###   ########.fr       */
+/*   Updated: 2024/01/04 15:06:05 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,11 @@ void	ft_free(char **s)
 	free(s);
 }
 
-void	check_array(char **s, t_list *stack_a)
+int	check_array(char *s, t_list *stack_a)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		if (conditions(s[i], stack_a) == 0)
-		{
-			ft_lstclear(&stack_a);
-			ft_free(s);
-			exit(1);
-		}
-		i++;
-	}
+	if (conditions(s, stack_a) == 0)
+		return (0);
+	return (1);
 }
 
 t_list	*check_error2_spaces_and_creat_list(char *s, t_list *stack_a)
@@ -68,13 +58,12 @@ t_list	*check_error2_spaces_and_creat_list(char *s, t_list *stack_a)
 	int			num;
 
 	str_arr = ft_split(s, ' ');
-	check_array(str_arr, stack_a);
 	i = -1;
 	while (str_arr[++i])
 	{
 		num = ft_atoi(str_arr[i]);
 		lst = ft_lstnew(num);
-		if (!lst)
+		if (!lst || check_array(str_arr[i], stack_a) == 0)
 		{
 			ft_lstclear(&stack_a);
 			ft_free(str_arr);
