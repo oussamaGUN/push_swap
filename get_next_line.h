@@ -6,15 +6,14 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 17:40:04 by ousabbar          #+#    #+#             */
-/*   Updated: 2024/01/03 10:06:52 by ousabbar         ###   ########.fr       */
+/*   Updated: 2024/01/04 11:12:55 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-#  define BUFFER_SIZE 42
-
+# define BUFFER_SIZE 42
 
 # include <stdlib.h>
 # include <stdio.h>

@@ -10,7 +10,9 @@ BONUS = checker_bonus.c lst_new.c ft_atoi.c lst_addfront.c ft_lstsize.c \
 	   error_handle.c error_handle1.c list_creating.c get_next_line.c get_next_line_outils.c lst_del.c sorting_tools/rrr.c sorting_tools/ss.c \
 	   bonus_tools.c bonus_conditions.c ft_strcmp.c
 
-CLFAGS = -Wall -Wextra 
+CLFAGS = -Wall -Wextra -Werror
+
+CC = cc
 
 NAME = push_swap
 
@@ -23,18 +25,16 @@ OBJ_BONUS = $(BONUS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJC)
-	gcc $(OBJC) $(CLFAGS) -o $(NAME)
+	$(CC) $(OBJC) -o $(NAME)
 
 %.o: %.c
-	gcc -c $< -o $@
+	$(CC) $(CLFAGS) -c $< -o $@
 
-bonus: $(OBJ_BONUS)
+bonus: $(NAME_BONUS)
 
 $(NAME_BONUS): $(OBJ_BONUS)
-	gcc $(OBJ_BONUS) $(CLFAGS) -o $(NAME_BONUS)
+	$(CC)  $(OBJ_BONUS) -o $(NAME_BONUS)
 
-%.o: %.c
-	gcc -c $< -o $@
 
 clean:
 	rm -rf $(OBJC) $(OBJ_BONUS)
