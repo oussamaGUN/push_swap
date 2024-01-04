@@ -25,7 +25,7 @@ OBJ_BONUS = $(BONUS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJC)
-	$(CC) $(OBJC) -o $(NAME)
+	$(CC) $(OBJC) -o $(NAME) 
 
 %.o: %.c
 	$(CC) $(CLFAGS) -c $< -o $@
@@ -33,13 +33,13 @@ $(NAME): $(OBJC)
 bonus: $(NAME_BONUS)
 
 $(NAME_BONUS): $(OBJ_BONUS)
-	$(CC)  $(OBJ_BONUS) -o $(NAME_BONUS)
+	$(CC)  $(OBJ_BONUS) -o $(NAME_BONUS) -fsanitize=address -g3
 
 
 clean:
 	rm -rf $(OBJC) $(OBJ_BONUS)
 
 fclean: clean
-	rm -rf $(NAME) $(NAME_BONUS)
+	rm -rf $(NAME) $(NAME_BONUS) 
 
 re: fclean all

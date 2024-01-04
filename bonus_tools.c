@@ -6,17 +6,12 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 09:31:24 by ousabbar          #+#    #+#             */
-/*   Updated: 2024/01/04 09:35:51 by ousabbar         ###   ########.fr       */
+/*   Updated: 2024/01/04 15:21:07 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
 
-void	ft_free_1(t_list **a, t_list **b)
-{
-	ft_lstclear(a);
-	ft_lstclear(b);
-}
 
 int	empty_stack(t_list *b)
 {

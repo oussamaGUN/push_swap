@@ -6,7 +6,7 @@
 /*   By: ousabbar <ousabbar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 17:38:53 by ousabbar          #+#    #+#             */
-/*   Updated: 2024/01/04 15:04:50 by ousabbar         ###   ########.fr       */
+/*   Updated: 2024/01/04 15:23:20 by ousabbar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,5 @@ char	*get_next_line(int fd)
 	saved = ft_line(saved, fd);
 	result = ft_trim(saved);
 	saved = ft_new_line(saved);
-	if (ft_strlen(saved) == 0)
-		free(saved);
 	return (result);
 }
