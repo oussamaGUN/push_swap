@@ -18,7 +18,7 @@ NAME_BONUS = checker_bonus
 
 OBJC = $(SRC:.c=.o)
 
-OBJ_BONUS = $(BONUS:.c=.c)
+OBJ_BONUS = $(BONUS:.c=.o)
 
 all: $(NAME)
 
@@ -30,14 +30,14 @@ $(NAME): $(OBJC)
 
 bonus: $(OBJ_BONUS)
 
-$(NAME_BONUS):$(OBJ_BONUS)
+$(NAME_BONUS): $(OBJ_BONUS)
 	gcc $(OBJ_BONUS) $(CLFAGS) -o $(NAME_BONUS)
 
 %.o: %.c
 	gcc -c $< -o $@
 
 clean:
-	rm -rf $(OBJC)
+	rm -rf $(OBJC) $(OBJ_BONUS)
 
 fclean: clean
 	rm -rf $(NAME) $(NAME_BONUS)
